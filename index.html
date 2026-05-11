@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velox Premium Cycles | The Ultimate Riding Experience</title>
+    <title>Velox Premium Cycles India | The Ultimate Riding Experience</title>
     
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -136,7 +136,6 @@
         
         .logo { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-rust); display: flex; align-items: center; gap: 10px; z-index: 100000; }
         
-        /* Desktop Navigation */
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; position: relative; padding-bottom: 5px; transition: var(--transition-fast);}
         .nav-links a:hover { color: var(--accent-rust); }
@@ -150,7 +149,6 @@
         .btn-primary:hover::before { width: 100%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); color: #fff; }
 
-        /* Mobile Hamburger Icon */
         .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; z-index: 100000; padding: 5px; cursor: none; }
         .hamburger span { width: 30px; height: 3px; background: var(--accent-rust); border-radius: 5px; transition: 0.3s; }
         .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
@@ -212,7 +210,7 @@
         .ai-input-group button { padding: 0 25px; background: var(--accent-rust); color: #fff; border: none; border-radius: var(--curve-sm); cursor: none; transition: 0.3s; font-size: 1.1rem; }
         .ai-input-group button:hover { background: var(--accent-gold); }
         
-        .ai-btn { padding: 12px 20px; background: var(--surface); border: 1px solid var(--accent-gold); border-radius: var(--curve-xl); color: var(--text-primary); font-weight: 600; font-size: 0.95rem; transition: var(--transition-fast); cursor: none; }
+        .ai-btn { padding: 12px 20px; background: var(--surface); border: 1px solid var(--accent-gold); border-radius: var(--curve-xl); color: var(--text-primary); font-weight: 600; font-size: 0.95rem; transition: var(--transition-fast); cursor: none; text-align: center; }
         .ai-btn:hover { background: var(--accent-rust); color: #fff; transform: translateY(-2px); border-color: var(--accent-rust); }
 
         @keyframes msgIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -337,10 +335,9 @@
         .spec-box span.val { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
 
         /* =========================================
-           17. MOBILE-FIRST RESPONSIVE FIXES
+           17. MOBILE-FIRST RESPONSIVE FIXES (2-Column Catalog & Alignment)
            ========================================= */
         @media (max-width: 1024px) {
-            .hero-title { font-size: 3.5rem; }
             header { width: 95%; padding: 15px 25px; }
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 100vw; height: 100vh;
@@ -358,31 +355,45 @@
         }
 
         @media (max-width: 768px) {
+            /* Structural Resets for Mobile */
             .section-padding { padding: 60px 5%; }
             .about-grid, .booking-wrapper, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .stats-grid, .craft-grid { grid-template-columns: 1fr; gap: 20px; }
             
+            /* Header & Hero */
             header { top: 10px; padding: 10px 20px; }
             header.scrolled { top: 0; border-radius: 0; width: 100%; }
             .hero { margin-top: 0; }
             .hero-content { margin-top: 80px; text-align: center; }
             .hero-quote { border-left: none; padding-left: 0; border-top: 2px solid var(--accent-rust); padding-top: 15px; }
             
-            .about-img-main { height: 350px; }
+            /* TRUE MOBILE 2-COLUMN CATALOG GRID */
+            .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .cycle-card { padding: 15px; border-radius: var(--curve-sm); }
+            .card-img-wrap { height: 110px; padding: 5px; margin-bottom: 10px; }
+            .card-title { font-size: 1rem; margin-bottom: 5px; line-height: 1.2; }
+            .card-price { font-size: 0.95rem; margin-bottom: 5px; }
+            .card-type { font-size: 0.65rem; }
+
+            /* Components */
+            .about-img-main { height: 300px; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .booking-form-container { padding: 30px; }
             .booking-img { display: none; } 
             
+            /* Sliders */
             .gallery-img { width: 280px; height: 180px; }
             .review-card { width: 300px; padding: 20px; }
             
+            /* Modal Overrides */
             .modal-content { grid-template-columns: 1fr; height: 90vh; overflow-y: auto; display: block; }
-            .modal-image { padding: 20px; height: 300px; }
-            .modal-info { padding: 30px; }
-            .spec-grid { grid-template-columns: 1fr; }
+            .modal-image { padding: 20px; height: 250px; }
+            .modal-info { padding: 20px; }
+            .spec-grid { grid-template-columns: 1fr; gap: 10px; }
             
+            /* Top bar */
             .top-bar { display: none; } 
-            .page-view { padding-top: 100px; }
+            .page-view { padding-top: 90px; }
             .content-box { padding: 30px 20px; }
         }
     </style>
@@ -410,16 +421,16 @@
     <!-- TOP CONTACT BAR (Desktop only) -->
     <div class="top-bar">
         <div class="top-bar-info">
-            <span><i class="fa-solid fa-envelope" style="color: var(--accent-gold);"></i> premium@veloxcycles.com</span>
+            <span><i class="fa-solid fa-envelope" style="color: var(--accent-gold);"></i> premium@veloxcycles.in</span>
             <span><i class="fa-solid fa-phone" style="color: var(--accent-gold);"></i> +91 9422231321</span>
         </div>
-        <div><i class="fa-solid fa-clock" style="color: var(--accent-gold);"></i> Hours: Mon-Sun, 9AM - 9PM</div>
+        <div><i class="fa-solid fa-clock" style="color: var(--accent-gold);"></i> Hours: Mon-Sun, 9AM - 9PM IST</div>
     </div>
 
     <!-- PREMIUM FLOATING HEADER -->
     <header id="header">
         <div class="logo">
-            <i class="fa-solid fa-bicycle" style="color: var(--accent-gold);"></i> VELOX
+            <i class="fa-solid fa-bicycle" style="color: var(--accent-gold);"></i> VELOX INDIA
         </div>
         
         <nav class="nav-links" id="nav-links">
@@ -453,9 +464,9 @@
             <section class="hero">
                 <div class="hero-bg"></div>
                 <div class="hero-content reveal">
-                    <span class="hero-subtitle">The Pinnacle of Cycling</span>
-                    <h1 class="hero-title">Redefining the <br><span style="color: var(--accent-gold);">Art of Motion</span></h1>
-                    <p class="hero-quote">"Life is like riding a bicycle. To keep your balance, you must keep moving." <br>— Albert Einstein</p>
+                    <span class="hero-subtitle">The Pinnacle of Indian Cycling</span>
+                    <h1 class="hero-title">Conquer Every <br><span style="color: var(--accent-gold);">Indian Terrain</span></h1>
+                    <p class="hero-quote">"From the peaks of the Himalayas to the bustling streets of Mumbai. We keep you moving."</p>
                     <button class="btn-primary" style="padding: 15px 40px; font-size: 1.1rem;" onclick="switchView('view-catalog')">Explore The Masterpieces</button>
                 </div>
             </section>
@@ -464,7 +475,7 @@
             <section class="section-padding">
                 <div class="section-header reveal">
                     <h2 class="section-title">A Legacy of Excellence</h2>
-                    <p class="section-desc">Born from a passion for speed, built with an obsession for detail.</p>
+                    <p class="section-desc">Born from a passion for speed, engineered specifically for India.</p>
                 </div>
                 <div class="about-grid">
                     <div class="about-img-wrap reveal">
@@ -472,12 +483,12 @@
                     </div>
                     <div class="about-text reveal">
                         <h3>Where Engineering Meets Elegance</h3>
-                        <p>At Velox Cycles, we do not just sell bicycles; we curate premium riding experiences. Our showroom houses the world's most elite, precision-engineered cycles crafted for professionals, enthusiasts, and city commuters alike.</p>
-                        <p>We pride ourselves on offering a meticulously curated collection for <strong>all ages, all genders, and all terrains</strong>. Whether attacking a mountain trail or gliding through the urban landscape, Velox ensures absolute supremacy.</p>
+                        <p>At Velox Cycles India, we do not just sell bicycles; we curate premium riding experiences. Our showroom houses the world's most elite cycles, precision-engineered to tackle heavy monsoons, unpredictable potholes, and extreme climbs.</p>
+                        <p>We pride ourselves on offering a meticulously curated collection for <strong>all ages, all genders, and all Indian terrains</strong>. Whether attacking a steep Ghat or gliding through urban traffic, Velox ensures absolute supremacy.</p>
                         <ul style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
                             <li><i class="fa-solid fa-check" style="color: var(--accent-rust); margin-right: 10px;"></i> Lifetime Premium Frame Warranty</li>
                             <li><i class="fa-solid fa-check" style="color: var(--accent-rust); margin-right: 10px;"></i> White-Glove Assembly & Custom Tuning</li>
-                            <li><i class="fa-solid fa-check" style="color: var(--accent-rust); margin-right: 10px;"></i> Exclusive Access to Velox Riding Club</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--accent-rust); margin-right: 10px;"></i> Exclusive Access to Velox India Riding Club</li>
                         </ul>
                     </div>
                 </div>
@@ -486,10 +497,10 @@
                 <div class="stats-grid reveal" id="stats-container">
                     <div class="stat-item">
                         <div class="stat-num" data-target="15">0</div>
-                        <div class="stat-label">Years of Mastery</div>
+                        <div class="stat-label">Years in India</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-num" data-target="25000">0</div>
+                        <div class="stat-num" data-target="45000">0</div>
                         <div class="stat-label">Happy Riders</div>
                     </div>
                     <div class="stat-item">
@@ -507,23 +518,23 @@
             <section class="section-padding craft-section">
                 <div class="section-header reveal">
                     <h2 class="section-title">The Velox Standard</h2>
-                    <p class="section-desc">We leave nothing to chance. Every component is rigorously tested.</p>
+                    <p class="section-desc">We leave nothing to chance. Every component is rigorously tested for local conditions.</p>
                 </div>
                 <div class="craft-grid reveal">
                     <div class="craft-card">
                         <i class="fa-solid fa-layer-group craft-icon"></i>
                         <h3>Aerospace Carbon</h3>
-                        <p>Our frames utilize aerospace-grade carbon fiber, ensuring ultra-lightweight performance without compromising structural integrity.</p>
+                        <p>Our frames utilize aerospace-grade carbon fiber, ensuring ultra-lightweight performance without compromising structural integrity against potholes.</p>
                     </div>
                     <div class="craft-card">
                         <i class="fa-solid fa-gears craft-icon"></i>
-                        <h3>Precision Drivetrain</h3>
-                        <p>Equipped with industry-leading electronic shifting systems, providing seamless, instantaneous gear changes on demand.</p>
+                        <h3>Monsoon Sealed Drivetrain</h3>
+                        <p>Equipped with industry-leading electronic shifting systems, fully waterproofed to survive and thrive during heavy Indian monsoons.</p>
                     </div>
                     <div class="craft-card">
                         <i class="fa-solid fa-shield-halved craft-icon"></i>
                         <h3>Hydraulic Safety</h3>
-                        <p>Advanced hydraulic disc brakes offer unparalleled stopping power in all weather conditions, ensuring ultimate rider safety.</p>
+                        <p>Advanced hydraulic disc brakes offer unparalleled stopping power, ensuring ultimate rider safety in unpredictable city traffic.</p>
                     </div>
                 </div>
             </section>
@@ -532,7 +543,7 @@
             <section class="section-padding" style="background: var(--bg-main);">
                 <div class="section-header reveal">
                     <h2 class="section-title">AI Fit Assistant</h2>
-                    <p class="section-desc">Not sure which cycle to choose? Chat with our proprietary AI to find your perfect match.</p>
+                    <p class="section-desc">Not sure which cycle to choose? Chat with our proprietary AI to find your perfect Indian match.</p>
                 </div>
                 <div class="ai-container reveal">
                     <div class="ai-header">
@@ -540,7 +551,7 @@
                         <div><h3 style="margin:0; color:#fff; font-family:'Montserrat';">Velox Intelligence</h3><span style="font-size: 0.85rem;">Online | Ready to Assist</span></div>
                     </div>
                     <div class="ai-chat-window" id="ai-chat">
-                        <div class="msg bot">Welcome to the Velox showroom. I am your personal AI concierge. To begin, what type of terrain or riding do you plan to do the most? (e.g., Mountains, City commute, Road racing, Dirt tricks)</div>
+                        <div class="msg bot">Welcome to the Velox India showroom. I am your personal AI concierge. To begin, what type of riding do you plan to do? (e.g., Heavy city traffic, Steep Ghats, Highway racing, Off-road trails)</div>
                     </div>
                     <div class="ai-controls" id="ai-controls">
                         <div class="ai-input-group">
@@ -555,7 +566,7 @@
             <section class="section-padding">
                 <div class="section-header reveal">
                     <h2 class="section-title">Featured Masterpieces</h2>
-                    <p class="section-desc">A glimpse of our premium engineering currently dominating the roads.</p>
+                    <p class="section-desc">A glimpse of our premium engineering currently dominating Indian roads.</p>
                 </div>
                 <div class="catalog-grid reveal" id="featured-catalog-container">
                     <!-- Injected via JavaScript (First 6 items) -->
@@ -593,8 +604,8 @@
                         <h3 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 30px; font-family:'Cinzel'; color:var(--accent-rust);">Reservation Details</h3>
                         <form onsubmit="submitBooking(event)">
                             <div class="form-row">
-                                <div class="input-group"><label>First Name</label><input type="text" id="wa-fname" placeholder="John" required></div>
-                                <div class="input-group"><label>Last Name</label><input type="text" id="wa-lname" placeholder="Doe" required></div>
+                                <div class="input-group"><label>First Name</label><input type="text" id="wa-fname" placeholder="Rahul" required></div>
+                                <div class="input-group"><label>Last Name</label><input type="text" id="wa-lname" placeholder="Sharma" required></div>
                             </div>
                             <div class="input-group"><label>Phone Number (WhatsApp)</label><input type="tel" id="wa-phone" placeholder="+91 98765 43210" required></div>
                             <div class="input-group"><label>Preferred Date</label><input type="date" id="wa-date" required></div>
@@ -620,34 +631,34 @@
                 <div class="slider-track" style="animation-duration: 35s;">
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="review-text">"Absolutely premium experience. The AI suggester helped me find the perfect mountain bike. Highly recommended!"</p>
-                        <p class="review-author">- Sarah Jenkins</p>
+                        <p class="review-text">"Absolutely premium experience. The AI suggester helped me find the perfect mountain bike for my trips to Lonavala. Highly recommended!"</p>
+                        <p class="review-author">- Anjali Desai</p>
                     </div>
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="review-text">"The test ride booking via WhatsApp was seamless, and the staff was extremely professional. Bought the Aero Sprinter V2 and I love it."</p>
-                        <p class="review-author">- Michael Chen</p>
+                        <p class="review-text">"The test ride booking via WhatsApp was seamless. Bought the Ghat Sprinter V2 and it glides on the expressways!"</p>
+                        <p class="review-author">- Vikram Singh</p>
                     </div>
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-                        <p class="review-text">"Top-notch cycles and warm aesthetic showroom. The best place in town for serious cyclists. The customization is unbelievable."</p>
-                        <p class="review-author">- Emma Roberts</p>
+                        <p class="review-text">"Top-notch cycles and warm aesthetic showroom in BKC. The best place in Mumbai for serious cyclists. The customization is unbelievable."</p>
+                        <p class="review-author">- Priya Menon</p>
                     </div>
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="review-text">"I picked up a Volt E-Rider. The battery life is insane and the finish on the carbon frame turns heads everywhere I go."</p>
-                        <p class="review-author">- David Thompson</p>
+                        <p class="review-text">"I picked up a Delhi E-Rider. The battery life is insane and the finish on the carbon frame turns heads everywhere I go in CP."</p>
+                        <p class="review-author">- Rohan Kapoor</p>
                     </div>
                     <!-- Duplicated for Loop -->
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="review-text">"Absolutely premium experience. The AI suggester helped me find the perfect mountain bike. Highly recommended!"</p>
-                        <p class="review-author">- Sarah Jenkins</p>
+                        <p class="review-text">"Absolutely premium experience. The AI suggester helped me find the perfect mountain bike for my trips to Lonavala. Highly recommended!"</p>
+                        <p class="review-author">- Anjali Desai</p>
                     </div>
                     <div class="review-card">
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="review-text">"The test ride booking via WhatsApp was seamless, and the staff was extremely professional. Bought the Aero Sprinter V2 and I love it."</p>
-                        <p class="review-author">- Michael Chen</p>
+                        <p class="review-text">"The test ride booking via WhatsApp was seamless. Bought the Ghat Sprinter V2 and it glides on the expressways!"</p>
+                        <p class="review-author">- Vikram Singh</p>
                     </div>
                 </div>
             </section>
@@ -656,28 +667,28 @@
             <section id="faq" class="section-padding" style="background: var(--surface);">
                 <div class="section-header reveal">
                     <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p class="section-desc">Everything you need to know about purchasing a Velox.</p>
+                    <p class="section-desc">Everything you need to know about purchasing a Velox in India.</p>
                 </div>
                 <div class="content-box reveal" style="padding: 0; background: transparent; box-shadow: none; border: none; max-width: 900px; margin: 0 auto;">
                     <div class="faq-item" onclick="this.classList.toggle('active')">
-                        <div class="faq-question">Do you ship internationally? <i class="fa-solid fa-chevron-down"></i></div>
-                        <div class="faq-answer"><p>Yes, we offer insured, white-glove international shipping to over 50 countries. Your cycle arrives 99% assembled in a custom hardshell flight case to ensure zero damage.</p></div>
+                        <div class="faq-question">Do you ship across India? <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer"><p>Yes, we offer insured, white-glove shipping to all major Indian cities. Your cycle arrives 99% assembled in a custom hardshell flight case to ensure zero damage.</p></div>
                     </div>
                     <div class="faq-item" onclick="this.classList.toggle('active')">
-                        <div class="faq-question">What does the Lifetime Warranty cover? <i class="fa-solid fa-chevron-down"></i></div>
-                        <div class="faq-answer"><p>It covers structural integrity of carbon and alloy frames against manufacturing defects. Drivetrains and moving parts carry a standard 3-year premium warranty.</p></div>
+                        <div class="faq-question">Are these cycles built for Indian monsoons? <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer"><p>Absolutely. All our frames feature aerospace-grade rust-proofing, and our drivetrains/electronic shifters are fully sealed to IP67 waterproof standards.</p></div>
                     </div>
                     <div class="faq-item" onclick="this.classList.toggle('active')">
                         <div class="faq-question">Can I test ride multiple models? <i class="fa-solid fa-chevron-down"></i></div>
-                        <div class="faq-answer"><p>Absolutely. When you book a test ride, our concierge will prepare up to 3 models of your choice, perfectly calibrated to your height and weight specifications.</p></div>
+                        <div class="faq-answer"><p>Yes. When you book a test ride, our concierge at the BKC showroom will prepare up to 3 models of your choice, perfectly calibrated to your height and weight.</p></div>
                     </div>
                     <div class="faq-item" onclick="this.classList.toggle('active')">
                         <div class="faq-question">Can I customize the paint job? <i class="fa-solid fa-chevron-down"></i></div>
-                        <div class="faq-answer"><p>Yes, Velox offers a "Bespoke Builder" service. Once you pay the deposit, you consult with our design team to choose custom matte/gloss finishes, decals, and accent colors.</p></div>
+                        <div class="faq-answer"><p>Yes, Velox offers a "Bespoke Builder" service. Once you pay the deposit, you consult with our design team to choose custom matte/gloss finishes and decals.</p></div>
                     </div>
                     <div class="faq-item" onclick="this.classList.toggle('active')">
-                        <div class="faq-question">Do you offer financing? <i class="fa-solid fa-chevron-down"></i></div>
-                        <div class="faq-answer"><p>Yes, we partner with premier financial institutions to offer 0% APR financing for up to 24 months for qualified buyers on models over ₹1,50,000.</p></div>
+                        <div class="faq-question">Do you offer EMI financing? <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer"><p>Yes, we partner with premier Indian banks (HDFC, ICICI, SBI) to offer No-Cost EMI for up to 24 months for qualified buyers on models over ₹1,50,000.</p></div>
                     </div>
                 </div>
             </section>
@@ -686,7 +697,7 @@
             <section id="contact" class="section-padding" style="background: var(--bg-secondary);">
                 <div class="section-header reveal">
                     <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-desc">Visit our flagship showroom or contact our concierge.</p>
+                    <p class="section-desc">Visit our flagship Indian showroom or contact our concierge.</p>
                 </div>
                 <div class="contact-grid reveal">
                     <div class="contact-info-cards">
@@ -696,15 +707,16 @@
                         </div>
                         <div class="contact-card">
                             <i class="fa-solid fa-envelope"></i>
-                            <div><h4>Email Address</h4><p>premium@veloxcycles.com</p></div>
+                            <div><h4>Email Address</h4><p>premium@veloxcycles.in</p></div>
                         </div>
                         <div class="contact-card">
                             <i class="fa-solid fa-location-dot"></i>
-                            <div><h4>Showroom Location</h4><p>128 Heritage Avenue, Velox Premium Block, City Center, 400001</p></div>
+                            <div><h4>Showroom Location</h4><p>128 Heritage Avenue, Velox Premium Block, Bandra Kurla Complex (BKC), Mumbai, Maharashtra 400051</p></div>
                         </div>
                     </div>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.33230495811!2d-0.24168051783857323!3d51.5285582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sin!4v1698240562308!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- Map focused on BKC Mumbai -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15085.155452281084!2d72.85984639999998!3d19.05101035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e123f8d27b%3A0x437996b49a236a78!2sBandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1698305012304!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </section>
@@ -716,10 +728,10 @@
              VIEW 2: FULL CATALOG & FILTERS
              ========================================= -->
         <div id="view-catalog" class="page-view">
-            <section class="section-padding" style="padding-top: 50px;">
+            <section class="section-padding">
                 <div class="section-header">
                     <h2 class="section-title">The Complete Collection</h2>
-                    <p class="section-desc">Browse our 30 meticulously engineered masterpieces.</p>
+                    <p class="section-desc">Browse our 30 meticulously engineered masterpieces for Indian roads.</p>
                 </div>
                 
                 <!-- Dynamic Filter Bar -->
@@ -744,16 +756,16 @@
              VIEW 3: PRIVACY POLICY
              ========================================= -->
         <div id="view-privacy" class="page-view">
-            <section class="section-padding" style="padding-top: 50px;">
+            <section class="section-padding">
                 <div class="content-box">
                     <h2>Privacy Policy</h2>
                     <p>Last Updated: October 2023</p>
                     <h3>1. Information We Collect</h3>
-                    <p>At Velox Premium Cycles, we collect personal information when you book a test ride, purchase a cycle, or subscribe to our newsletter. This includes your name, phone number, email address, and physical address for shipping purposes.</p>
+                    <p>At Velox Premium Cycles India, we collect personal information when you book a test ride, purchase a cycle, or subscribe to our newsletter. This includes your name, phone number, email address, and physical address for shipping purposes across India.</p>
                     <h3>2. How We Use Your Data</h3>
                     <p>Your data is exclusively used to provide white-glove service. We use your height/weight data solely for pre-tuning your cycle. Phone numbers collected via our booking form are processed securely through WhatsApp API directly to the shop owner (9422231321) for scheduling.</p>
                     <h3>3. Data Protection</h3>
-                    <p>We implement state-of-the-art encryption protocols. We do not sell, rent, or trade your personal information to third-party marketing agencies.</p>
+                    <p>We implement state-of-the-art encryption protocols compliant with Indian IT regulations. We do not sell, rent, or trade your personal information to third-party marketing agencies.</p>
                     <h3>4. Cookie Policy</h3>
                     <p>We use essential cookies to remember your light/dark theme preference and temporary session choices to provide a smooth browsing experience. No tracking cookies are deployed.</p>
                 </div>
@@ -764,17 +776,17 @@
              VIEW 4: TERMS & CONDITIONS
              ========================================= -->
         <div id="view-terms" class="page-view">
-            <section class="section-padding" style="padding-top: 50px;">
+            <section class="section-padding">
                 <div class="content-box">
                     <h2>Terms & Conditions</h2>
                     <h3>1. Test Ride Liability</h3>
-                    <p>By booking a test ride, the rider agrees to assume all risks associated with cycling. A valid ID and credit card hold may be required before test riding our Elite Tier models (valued over ₹4,00,000).</p>
+                    <p>By booking a test ride, the rider agrees to assume all risks associated with cycling in Indian traffic. A valid Aadhar/PAN Card and credit card hold may be required before test riding our Elite Tier models (valued over ₹4,00,000) at our BKC showroom.</p>
                     <h3>2. Return Policy</h3>
                     <p>We accept returns within 14 days of delivery, provided the cycle is in immaculate, unridden condition. Custom bespoke builds are non-refundable once the painting process has begun.</p>
                     <h3>3. Warranty Claims</h3>
                     <p>The Lifetime Frame Warranty applies only to the original owner. Any structural modifications, improper assembly by non-certified mechanics, or extreme abuse (beyond intended category use) voids the warranty.</p>
                     <h3>4. Pricing & Availability</h3>
-                    <p>All prices are subject to change without notice. Limited edition models are sold on a first-come, first-served basis. Velox reserves the right to cancel orders in the event of pricing errors.</p>
+                    <p>All prices are in INR (₹) and subject to change without notice. Limited edition models are sold on a first-come, first-served basis. Velox reserves the right to cancel orders in the event of pricing errors.</p>
                 </div>
             </section>
         </div>
@@ -783,10 +795,10 @@
              VIEW 5: PREMIUM MAINTENANCE GUIDE
              ========================================= -->
         <div id="view-maintenance" class="page-view">
-            <section class="section-padding" style="padding-top: 50px;">
+            <section class="section-padding">
                 <div class="content-box">
                     <h2>Premium Maintenance Guide</h2>
-                    <p>Protect your investment. Proper care ensures your Velox performs at peak efficiency for decades.</p>
+                    <p>Protect your investment against Indian monsoons and dust. Proper care ensures your Velox performs at peak efficiency for decades.</p>
                     
                     <h3>Carbon Frame Care</h3>
                     <ul>
@@ -794,16 +806,16 @@
                         <li><strong>Inspection:</strong> Check for deep scratches or delamination after any crash. Carbon is incredibly strong but requires professional assessment if compromised.</li>
                     </ul>
 
-                    <h3>Electronic Drivetrain (Di2/eTap)</h3>
+                    <h3>Electronic Drivetrain & Monsoons</h3>
                     <ul>
                         <li><strong>Battery:</strong> Charge your derailleur batteries once a month or every 1000km. Do not let them drain to 0% for prolonged periods.</li>
-                        <li><strong>Lubrication:</strong> Apply premium dry or wet lube (depending on weather) to the chain every 200km. Wipe off excess to prevent grime buildup.</li>
+                        <li><strong>Lubrication:</strong> Apply premium wet lube during the Indian monsoon season to the chain every 200km. Wipe off excess to prevent mud and grime buildup.</li>
                     </ul>
 
                     <h3>Hydraulic Disc Brakes</h3>
                     <ul>
                         <li><strong>Bedding In:</strong> New rotors must be 'bed-in' by performing 10-15 controlled stops from 25km/h to walking pace without fully locking the wheels.</li>
-                        <li><strong>Bleeding:</strong> Brakes should be bled by a certified Velox technician every 12-18 months to ensure absolute stopping power.</li>
+                        <li><strong>Bleeding:</strong> Brakes should be bled by a certified Velox technician every 12-18 months to ensure absolute stopping power in unpredictable traffic.</li>
                     </ul>
                 </div>
             </section>
@@ -821,10 +833,10 @@
             <div class="modal-image"><img id="mod-img" src="" alt="Cycle"></div>
             <div class="modal-info">
                 <span id="mod-type" style="color:var(--accent-gold); font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:0.9rem;"></span>
-                <h2 id="mod-title" style="font-size:clamp(2rem, 5vw, 3rem); margin-bottom:10px; line-height:1.1;"></h2>
-                <div id="mod-price" style="font-size:clamp(1.8rem, 4vw, 2.5rem); color:var(--accent-rust); font-weight:700; margin-bottom:20px; font-family:'Montserrat';"></div>
+                <h2 id="mod-title" style="font-size:clamp(1.8rem, 5vw, 3rem); margin-bottom:10px; line-height:1.1;"></h2>
+                <div id="mod-price" style="font-size:clamp(1.5rem, 4vw, 2.5rem); color:var(--accent-rust); font-weight:700; margin-bottom:20px; font-family:'Montserrat';"></div>
                 
-                <p style="color:var(--text-secondary); font-size:1.05rem; margin-bottom:30px; line-height:1.6;">An undisputed masterpiece of engineering. This premium model is built to conquer its terrain with unmatched precision, aerodynamic style, and absolute grace.</p>
+                <p style="color:var(--text-secondary); font-size:1rem; margin-bottom:30px; line-height:1.6;">An undisputed masterpiece of engineering. This premium Indian edition model is built to conquer its terrain with unmatched precision, aerodynamic style, and absolute grace.</p>
                 
                 <div class="spec-grid">
                     <div class="spec-box"><i class="fa-solid fa-user"></i><span class="lbl">Best For Age</span><span class="val" id="mod-age"></span></div>
@@ -855,8 +867,8 @@
     <footer>
         <div class="footer-grid">
             <div>
-                <div class="footer-logo"><i class="fa-solid fa-bicycle"></i> VELOX</div>
-                <p style="font-size: 1rem; line-height: 1.8;">Engineered for perfection. We are the premier destination for high-end cycling, offering a curated selection of the world's most advanced bicycles.</p>
+                <div class="footer-logo"><i class="fa-solid fa-bicycle"></i> VELOX INDIA</div>
+                <p style="font-size: 1rem; line-height: 1.8;">Engineered for perfection. We are the premier destination for high-end cycling in India, offering a curated selection of the world's most advanced bicycles.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -883,7 +895,7 @@
             </div>
             <div>
                 <h3 class="footer-heading">Newsletter</h3>
-                <p style="margin-bottom:15px; font-size:0.95rem;">Subscribe for exclusive access to limited-edition drops.</p>
+                <p style="margin-bottom:15px; font-size:0.95rem;">Subscribe for exclusive access to limited-edition Indian drops.</p>
                 <div class="newsletter">
                     <input type="email" placeholder="Enter your email address">
                     <button>Subscribe Now</button>
@@ -891,7 +903,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Velox Premium Cycles. All rights reserved. | Built for Excellence.</p>
+            <p>&copy; 2024 Velox Premium Cycles India. All rights reserved. | Built for Excellence.</p>
             <div class="payment-icons">
                 <i class="fa-brands fa-cc-visa"></i>
                 <i class="fa-brands fa-cc-mastercard"></i>
@@ -922,7 +934,6 @@
             nav.classList.toggle('active');
             burger.classList.toggle('active');
             
-            // Prevent body scroll when menu open
             if(nav.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -1006,7 +1017,6 @@
             document.getElementById(viewId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Close mobile menu if open
             const nav = document.getElementById('nav-links');
             const burger = document.getElementById('hamburger');
             if(nav.classList.contains('active')) {
@@ -1016,38 +1026,38 @@
             }
         }
 
-        /* 8. MASSIVE 30-CYCLE DATABASE WITH INR PRICING */
+        /* 8. MASSIVE 30-CYCLE DATABASE WITH INDIAN CONTEXT & INR PRICING */
         const massiveDatabase = [
-            { title: "Velox Apex Pro", type: "Mountain", price: "₹2,75,000", age: "18+", use: "Extreme Off-Road", frame: "Carbon Fiber", gears: "12-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Aero Sprinter V2", type: "Road Racing", price: "₹3,75,000", age: "18+", use: "Tour Racing", frame: "Aero Carbon", gears: "22-Spd Wireless", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "City Glide Elite", type: "Hybrid", price: "₹1,05,000", age: "15+", use: "Urban Commute", frame: "Alloy", gears: "9-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Volt E-Rider", type: "Electric", price: "₹3,15,000", age: "18+", use: "Long Distance", frame: "Reinforced Alloy", gears: "E-Assist", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Trail Blazer X", type: "City", price: "₹70,000", age: "12+", use: "BMX / Tricks", frame: "Chromoly", gears: "Single Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Vintage Cruiser", type: "City", price: "₹80,000", age: "All Ages", use: "Beach/Park", frame: "Steel", gears: "3-Speed Hub", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Carbon Zenith", type: "Road Racing", price: "₹4,35,000", age: "18+", use: "Pro Racing", frame: "Ultra Carbon", gears: "24-Spd", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Mud Ripper 9000", type: "Mountain", price: "₹1,75,000", age: "16+", use: "Forest Trails", frame: "Alloy", gears: "11-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Urban Fold V3", type: "City", price: "₹62,000", age: "All Ages", use: "Subway Commute", frame: "Folding Alloy", gears: "6-Speed", img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Gravel King", type: "Hybrid", price: "₹1,55,000", age: "16+", use: "Mixed Terrain", frame: "Aluminum", gears: "11-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Velox Himalaya Pro", type: "Mountain", price: "₹2,75,000", age: "18+", use: "Extreme Off-Road & Ghats", frame: "Carbon Fiber", gears: "12-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Ghat Sprinter V2", type: "Road Racing", price: "₹3,75,000", age: "18+", use: "Highway Racing", frame: "Aero Carbon", gears: "22-Spd Wireless", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Mumbai Commuter Elite", type: "Hybrid", price: "₹1,05,000", age: "15+", use: "Heavy Traffic Commute", frame: "Alloy", gears: "9-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Delhi E-Rider", type: "Electric", price: "₹3,15,000", age: "18+", use: "Long Distance City", frame: "Reinforced Alloy", gears: "E-Assist", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Desi Trail Blazer X", type: "City", price: "₹70,000", age: "12+", use: "BMX / Local Streets", frame: "Chromoly", gears: "Single Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Goa Beach Cruiser", type: "City", price: "₹80,000", age: "All Ages", use: "Beach / Coastal", frame: "Steel", gears: "3-Speed Hub", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Carbon Zenith India", type: "Road Racing", price: "₹4,35,000", age: "18+", use: "Pro Expressway Racing", frame: "Ultra Carbon", gears: "24-Spd", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Monsoon Mud Ripper", type: "Mountain", price: "₹1,75,000", age: "16+", use: "Wet Trails / Monsoons", frame: "Alloy", gears: "11-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Metro Fold V3", type: "City", price: "₹62,000", age: "All Ages", use: "Metro/Subway Commute", frame: "Folding Alloy", gears: "6-Speed", img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Deccan Gravel King", type: "Hybrid", price: "₹1,55,000", age: "16+", use: "Mixed Terrain", frame: "Aluminum", gears: "11-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Pinnacle E-MTB", type: "Electric", price: "₹4,10,000", age: "18+", use: "E-Assisted Mountains", frame: "Carbon Full Susp.", gears: "12-Speed E-Drive", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Youth Trail 20", type: "Mountain", price: "₹38,000", age: "8-14", use: "Kids Off-Road", frame: "Alloy", gears: "7-Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Triathlon Master", type: "Road Racing", price: "₹5,10,000", age: "18+", use: "Ironman", frame: "Aero Carbon", gears: "Electronic 22-Spd", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Enduro Beast", type: "Mountain", price: "₹3,00,000", age: "18+", use: "Downhill Racing", frame: "Carbon", gears: "12-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Classic Dutch", type: "City", price: "₹46,000", age: "All Ages", use: "Casual Riding", frame: "Steel", gears: "3-Speed", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Titanium Touring", type: "Hybrid", price: "₹2,35,000", age: "18+", use: "Cross-Country", frame: "Titanium", gears: "27-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Aero Track Fixie", type: "Road Racing", price: "₹92,000", age: "18+", use: "Velodrome", frame: "Alloy", gears: "Fixed Gear", img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Eco Deliver", type: "Electric", price: "₹2,65,000", age: "18+", use: "Cargo/Transport", frame: "Steel", gears: "E-Assist", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Snow Fat Tire", type: "Mountain", price: "₹1,15,000", age: "18+", use: "Snow/Sand", frame: "Alloy", gears: "9-Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Lady Elegance", type: "City", price: "₹66,000", age: "15+", use: "City Cruising", frame: "Step-Through Alloy", gears: "7-Speed", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Triathlon Master IND", type: "Road Racing", price: "₹5,10,000", age: "18+", use: "Ironman Training", frame: "Aero Carbon", gears: "Electronic 22-Spd", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Sahyadri Beast", type: "Mountain", price: "₹3,00,000", age: "18+", use: "Downhill Racing", frame: "Carbon", gears: "12-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Classic Heritage", type: "City", price: "₹46,000", age: "All Ages", use: "Casual Sunday Rides", frame: "Steel", gears: "3-Speed", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Kashmir Touring X", type: "Hybrid", price: "₹2,35,000", age: "18+", use: "Cross-Country Touring", frame: "Titanium", gears: "27-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Aero Track Fixie", type: "Road Racing", price: "₹92,000", age: "18+", use: "Velodrome Racing", frame: "Alloy", gears: "Fixed Gear", img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Eco Cargo Delivery", type: "Electric", price: "₹2,65,000", age: "18+", use: "Urban Cargo Transport", frame: "Steel", gears: "E-Assist", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Thar Sand Fat Tire", type: "Mountain", price: "₹1,15,000", age: "18+", use: "Sand & Desert", frame: "Alloy", gears: "9-Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Lady Elegance IND", type: "City", price: "₹66,000", age: "15+", use: "City Cruising", frame: "Step-Through Alloy", gears: "7-Speed", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Velox Ascent", type: "Mountain", price: "₹1,62,000", age: "16+", use: "Steep Climbs", frame: "Carbon", gears: "12-Speed", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Velox Descent", type: "Mountain", price: "₹3,50,000", age: "18+", use: "Pro Downhill", frame: "Full Susp. Carbon", gears: "7-Spd DH", img: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Carbon Commuter", type: "Hybrid", price: "₹1,42,000", age: "18+", use: "Fast Commute", frame: "Carbon Fiber", gears: "11-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Pune Carbon Commuter", type: "Hybrid", price: "₹1,42,000", age: "18+", use: "Fast Commute", frame: "Carbon Fiber", gears: "11-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Sprint E-Pro", type: "Electric", price: "₹4,60,000", age: "18+", use: "E-Racing", frame: "Carbon", gears: "E-Assist 22-Spd", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Park Master", type: "City", price: "₹54,000", age: "12+", use: "BMX Skatepark", frame: "Chromoly", gears: "Single Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+            { title: "Park Master", type: "City", price: "₹54,000", age: "12+", use: "Local Parks", frame: "Chromoly", gears: "Single Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Midnight Rider", type: "City", price: "₹88,000", age: "18+", use: "Night Commute", frame: "Alloy", gears: "8-Speed", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Alloy Road Ace", type: "Road Racing", price: "₹1,08,000", age: "16+", use: "Entry Racing", frame: "Aluminum", gears: "18-Speed", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Gravel Queen", type: "Hybrid", price: "₹1,55,000", age: "16+", use: "Mixed Terrain", frame: "Aluminum", gears: "11-Speed", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
             { title: "Sand Cruiser", type: "Mountain", price: "₹1,34,000", age: "18+", use: "Dunes", frame: "Alloy Fat Tire", gears: "9-Speed", img: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-            { title: "Ultimate Velox", type: "Road Racing", price: "₹8,35,000", age: "18+", use: "Flagship Racing", frame: "Quantum Carbon", gears: "Wireless Shifting", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" }
+            { title: "Ultimate Velox India", type: "Road Racing", price: "₹8,35,000", age: "18+", use: "Flagship Racing", frame: "Quantum Carbon", gears: "Wireless Shifting", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" }
         ];
 
         /* 9. RENDER CATALOG (FEATURED & FULL) */
@@ -1132,6 +1142,14 @@
             setTimeout(() => { document.getElementById('booking').scrollIntoView({behavior: 'smooth'}); }, 200);
         }
 
+        // Dedicated function for AI to open specific cycle modal
+        function viewCycleDetailsFromAI(cycleName) {
+            const index = massiveDatabase.findIndex(c => c.title === cycleName);
+            if(index !== -1) {
+                openModal(index);
+            }
+        }
+
         /* 12. AI FIT ASSISTANT (INTERACTIVE TEXT CHAT LOGIC) */
         const aiChat = document.getElementById('ai-chat');
         let chatStep = 0;
@@ -1146,16 +1164,14 @@
             const text = inputEl.value.trim();
             if(!text) return;
 
-            // Add user message to chat
             aiChat.innerHTML += `<div class="msg user">${text}</div>`;
             inputEl.value = '';
             aiChat.scrollTop = aiChat.scrollHeight;
 
-            // Process AI Response based on current step
             setTimeout(() => {
                 if(chatStep === 0) {
                     userPreferences.terrain = text.toLowerCase();
-                    aiChat.innerHTML += `<div class="msg bot">Noted. Terrain specific engineering is crucial. Next, what is your approximate budget in INR? (e.g., Under 1 Lakh, 2-5 Lakhs, No limit)</div>`;
+                    aiChat.innerHTML += `<div class="msg bot">Noted. Terrain specific engineering is crucial for Indian roads. Next, what is your approximate budget in INR? (e.g., Under 1 Lakh, 2-5 Lakhs, No limit)</div>`;
                     chatStep++;
                 } else if (chatStep === 1) {
                     userPreferences.budget = text.toLowerCase();
@@ -1163,36 +1179,37 @@
                     chatStep++;
                 } else if (chatStep === 2) {
                     userPreferences.age = text.toLowerCase();
-                    aiChat.innerHTML += `<div class="msg bot">Analyzing our catalog based on your precise inputs...</div>`;
+                    aiChat.innerHTML += `<div class="msg bot">Analyzing our Indian catalog based on your precise inputs...</div>`;
                     chatStep++;
                     
-                    // Logic to recommend cycle based on user text
                     setTimeout(() => {
-                        let rec = "Ultimate Velox"; // Default fallback
+                        let rec = "Ultimate Velox India"; 
                         const t = userPreferences.terrain;
                         const a = userPreferences.age;
                         
                         if (a.includes("kid") || a.includes("child") || a.includes("boy") || a.includes("girl")) {
                             rec = "Youth Trail 20";
-                        } else if (t.includes("mountain") || t.includes("dirt") || t.includes("trail") || t.includes("off-road")) {
-                            rec = "Velox Apex Pro";
-                        } else if (t.includes("city") || t.includes("commute") || t.includes("urban") || t.includes("street")) {
-                            rec = "City Glide Elite";
+                        } else if (t.includes("mountain") || t.includes("ghat") || t.includes("trail") || t.includes("off-road") || t.includes("mud")) {
+                            rec = "Velox Himalaya Pro";
+                        } else if (t.includes("city") || t.includes("commute") || t.includes("traffic") || t.includes("street")) {
+                            rec = "Mumbai Commuter Elite";
                         } else if (t.includes("electric") || t.includes("e-bike") || t.includes("battery")) {
-                            rec = "Volt E-Rider";
-                        } else if (t.includes("road") || t.includes("race") || t.includes("speed") || t.includes("fast")) {
-                            rec = "Aero Sprinter V2";
+                            rec = "Delhi E-Rider";
+                        } else if (t.includes("road") || t.includes("race") || t.includes("speed") || t.includes("highway")) {
+                            rec = "Ghat Sprinter V2";
                         }
 
-                        currentSelectedBike = rec; // Set logic for prefill
+                        currentSelectedBike = rec; 
                         
                         aiChat.innerHTML += `<div class="msg bot">Based on your preferences, I highly recommend the <strong>${rec}</strong>. It fits your profile perfectly.</div>`;
                         aiChat.scrollTop = aiChat.scrollHeight;
                         
                         const controls = document.getElementById('ai-controls');
+                        // ADDED VIEW DETAILS BUTTON AS REQUESTED
                         controls.innerHTML = `
-                            <button class="ai-btn" style="background:var(--accent-rust); color:#fff; border:none; width:100%; font-size:1.1rem; padding:15px;" onclick="prefillAndBook()">Schedule Test Ride for ${rec}</button>
-                            <button class="ai-btn" style="width:100%; margin-top:10px;" onclick="resetAI()">Start Over</button>
+                            <button class="ai-btn" style="background:var(--surface); color:var(--text-primary); width:100%; font-size:1rem; padding:12px; margin-bottom:10px;" onclick="viewCycleDetailsFromAI('${rec}')">View Cycle Details</button>
+                            <button class="ai-btn" style="background:var(--accent-rust); color:#fff; border:none; width:100%; font-size:1rem; padding:12px;" onclick="prefillAndBook()">Schedule Test Ride</button>
+                            <button class="ai-btn" style="width:100%; margin-top:10px; font-size:0.9rem; padding:10px;" onclick="resetAI()">Start Over</button>
                         `;
                     }, 1500);
                 }
@@ -1203,7 +1220,7 @@
         function resetAI() {
             chatStep = 0;
             userPreferences = { terrain: "", budget: "", age: "" };
-            aiChat.innerHTML = `<div class="msg bot">Welcome to the Velox showroom. I am your personal AI concierge. To begin, what type of terrain or riding do you plan to do the most? (e.g., Mountains, City commute, Road racing, Dirt tricks)</div>`;
+            aiChat.innerHTML = `<div class="msg bot">Welcome to the Velox India showroom. I am your personal AI concierge. To begin, what type of riding do you plan to do? (e.g., Heavy city traffic, Steep Ghats, Highway racing, Off-road trails)</div>`;
             const controls = document.getElementById('ai-controls');
             controls.innerHTML = `
                 <div class="ai-input-group">
@@ -1213,7 +1230,7 @@
             `;
         }
 
-        /* 14. WHATSAPP BOOKING SUBMISSION */
+        /* 15. WHATSAPP BOOKING SUBMISSION */
         function submitBooking(e) {
             e.preventDefault();
             const fname = document.getElementById('wa-fname').value;
