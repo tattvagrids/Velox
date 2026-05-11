@@ -78,7 +78,7 @@
             .cursor-outline { position: fixed; width: 40px; height: 40px; border: 1px solid var(--accent-gold); border-radius: 50%; pointer-events: none; z-index: 9999998; transform: translate(-50%, -50%); transition: 0.15s ease-out; }
         }
         @media (pointer: coarse) {
-            body { cursor: auto; }
+            body, * { cursor: auto !important; }
             .cursor-dot, .cursor-outline { display: none !important; }
         }
 
@@ -142,7 +142,7 @@
         .nav-links a:hover { color: var(--accent-rust); }
         
         .header-actions { display: flex; align-items: center; gap: 15px; z-index: 100000; }
-        .theme-btn { background: var(--surface); border: 1px solid var(--border-color); color: var(--text-primary); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; transition: var(--transition-fast); }
+        .theme-btn { background: var(--surface); border: 1px solid var(--border-color); color: var(--text-primary); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; transition: var(--transition-fast); cursor: none; }
         .theme-btn:hover { background: var(--accent-rust); color: #fff; transform: rotate(180deg); }
         
         .btn-primary { background: var(--accent-rust); color: #fff; padding: 15px 35px; border-radius: var(--curve-xl); border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden; z-index: 1; transition: var(--transition-slow); display: inline-block; text-align: center; cursor: none;}
@@ -151,7 +151,7 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); color: #fff; }
 
         /* Mobile Hamburger Icon */
-        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: none; background: transparent; border: none; z-index: 100000; padding: 5px; }
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; z-index: 100000; padding: 5px; cursor: none; }
         .hamburger span { width: 30px; height: 3px; background: var(--accent-rust); border-radius: 5px; transition: 0.3s; }
         .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -196,28 +196,36 @@
         .craft-icon { font-size: 3.5rem; color: var(--accent-gold); margin-bottom: 20px; transition: var(--transition-fast); }
 
         /* =========================================
-           8. AI SUGGESTER
+           8. AI SUGGESTER (INTERACTIVE TEXT CHAT)
            ========================================= */
         .ai-container { max-width: 900px; margin: 0 auto; background: var(--surface); border-radius: var(--curve-lg); overflow: hidden; box-shadow: var(--shadow-hover); border: 1px solid var(--border-color); display: flex; flex-direction: column; }
         .ai-header { background: linear-gradient(135deg, var(--accent-rust), var(--accent-gold)); padding: 25px; display: flex; align-items: center; gap: 15px; color: #fff; }
         .ai-chat-window { padding: 30px; height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; background: var(--surface); }
-        .msg { max-width: 85%; padding: 15px 20px; border-radius: var(--curve-md); font-size: 1rem; animation: msgIn 0.4s ease forwards; }
+        .msg { max-width: 85%; padding: 15px 20px; border-radius: var(--curve-md); font-size: 1rem; animation: msgIn 0.4s ease forwards; line-height: 1.5;}
         .msg.bot { background: var(--bg-secondary); border-bottom-left-radius: 0; align-self: flex-start; color: var(--text-primary); border: 1px solid var(--border-color);}
         .msg.user { background: var(--accent-rust); color: #fff; border-bottom-right-radius: 0; align-self: flex-end; }
-        .ai-controls { padding: 20px; background: var(--bg-secondary); border-top: 1px solid var(--border-color); display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-        .ai-btn { padding: 10px 20px; background: var(--surface); border: 1px solid var(--accent-gold); border-radius: var(--curve-xl); color: var(--text-primary); font-weight: 600; font-size: 0.9rem; transition: var(--transition-fast); }
-        .ai-btn:hover { background: var(--accent-rust); color: #fff; transform: translateY(-3px); border-color: var(--accent-rust); }
+        
+        .ai-controls { padding: 20px; background: var(--bg-secondary); border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+        .ai-input-group { display: flex; width: 100%; gap: 10px; }
+        .ai-input-group input { flex: 1; padding: 15px 20px; border-radius: var(--curve-sm); border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-primary); font-family: 'Montserrat'; font-size: 1rem; outline: none; transition: 0.3s; cursor: none;}
+        .ai-input-group input:focus { border-color: var(--accent-rust); box-shadow: 0 0 0 3px rgba(181, 83, 37, 0.1); }
+        .ai-input-group button { padding: 0 25px; background: var(--accent-rust); color: #fff; border: none; border-radius: var(--curve-sm); cursor: none; transition: 0.3s; font-size: 1.1rem; }
+        .ai-input-group button:hover { background: var(--accent-gold); }
+        
+        .ai-btn { padding: 12px 20px; background: var(--surface); border: 1px solid var(--accent-gold); border-radius: var(--curve-xl); color: var(--text-primary); font-weight: 600; font-size: 0.95rem; transition: var(--transition-fast); cursor: none; }
+        .ai-btn:hover { background: var(--accent-rust); color: #fff; transform: translateY(-2px); border-color: var(--accent-rust); }
+
         @keyframes msgIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* =========================================
            9. CATALOG (FEATURED & FULL + FILTERS)
            ========================================= */
         .filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .filter-btn { padding: 10px 20px; border-radius: 50px; border: 1px solid var(--border-color); background: var(--surface); color: var(--text-primary); font-weight: 600; font-size: 0.9rem; font-family: 'Montserrat'; transition: 0.3s; }
+        .filter-btn { padding: 10px 20px; border-radius: 50px; border: 1px solid var(--border-color); background: var(--surface); color: var(--text-primary); font-weight: 600; font-size: 0.9rem; font-family: 'Montserrat'; transition: 0.3s; cursor: none; }
         .filter-btn.active, .filter-btn:hover { background: var(--accent-rust); color: white; border-color: var(--accent-rust); }
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .cycle-card { background: var(--surface); border-radius: var(--curve-md); padding: 25px; border: 1px solid var(--border-color); transition: var(--transition-slow); position: relative; overflow: hidden; text-align: center;}
+        .cycle-card { background: var(--surface); border-radius: var(--curve-md); padding: 25px; border: 1px solid var(--border-color); transition: var(--transition-slow); position: relative; overflow: hidden; text-align: center; cursor: none;}
         .cycle-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--accent-gold); }
         .card-img-wrap { height: 200px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; padding: 10px; background: var(--bg-main); border-radius: var(--curve-sm); }
         .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s; }
@@ -252,14 +260,14 @@
         .booking-form-container { padding: 50px; }
         .input-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
         .input-group label { font-weight: 600; font-size: 0.9rem; color: var(--text-secondary); }
-        .input-group input, .input-group select { padding: 15px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--curve-sm); font-family: 'Montserrat'; font-size: 1rem; color: var(--text-primary); transition: 0.3s; width: 100%; }
+        .input-group input, .input-group select { padding: 15px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--curve-sm); font-family: 'Montserrat'; font-size: 1rem; color: var(--text-primary); transition: 0.3s; width: 100%; cursor: none; }
         .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent-rust); box-shadow: 0 0 0 3px rgba(181, 83, 37, 0.1); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
         /* =========================================
            12. FAQ ACCORDION
            ========================================= */
-        .faq-item { background: var(--surface); border: 1px solid var(--border-color); margin-bottom: 15px; border-radius: var(--curve-sm); overflow: hidden; transition: 0.3s; }
+        .faq-item { background: var(--surface); border: 1px solid var(--border-color); margin-bottom: 15px; border-radius: var(--curve-sm); overflow: hidden; transition: 0.3s; cursor: none;}
         .faq-item:hover { border-color: var(--accent-gold); }
         .faq-question { padding: 20px 25px; display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
         .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: var(--text-secondary); }
@@ -299,13 +307,13 @@
         .footer-logo { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--accent-rust); margin-bottom: 20px; font-weight: 700; }
         .footer-heading { color: #fff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 20px; }
         .footer-links li { margin-bottom: 10px; }
-        .footer-links a { transition: 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+        .footer-links a { transition: 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: none;}
         .footer-links a:hover { color: var(--accent-rust); transform: translateX(5px); }
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #1a1614; display: flex; justify-content: center; align-items: center; color: var(--accent-gold); border: 1px solid rgba(212, 163, 87, 0.2); transition: 0.3s; font-size: 1.1rem; }
+        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #1a1614; display: flex; justify-content: center; align-items: center; color: var(--accent-gold); border: 1px solid rgba(212, 163, 87, 0.2); transition: 0.3s; font-size: 1.1rem; cursor: none;}
         .social-icons a:hover { background: var(--accent-rust); color: #fff; transform: translateY(-5px); }
-        .newsletter input { width: 100%; padding: 12px 15px; border-radius: var(--curve-sm); border: none; background: #1a1614; color: #fff; margin-bottom: 10px; outline: none; }
-        .newsletter button { width: 100%; padding: 12px; background: var(--accent-rust); color: #fff; border: none; border-radius: var(--curve-sm); font-weight: 700; transition: 0.3s; }
+        .newsletter input { width: 100%; padding: 12px 15px; border-radius: var(--curve-sm); border: none; background: #1a1614; color: #fff; margin-bottom: 10px; outline: none; cursor: none;}
+        .newsletter button { width: 100%; padding: 12px; background: var(--accent-rust); color: #fff; border: none; border-radius: var(--curve-sm); font-weight: 700; transition: 0.3s; cursor: none;}
         .newsletter button:hover { background: var(--accent-gold); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; flex-wrap: wrap; gap: 15px; }
         .payment-icons { font-size: 1.8rem; color: #fff; opacity: 0.5; display: flex; gap: 15px; }
@@ -317,7 +325,7 @@
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-content { background: var(--surface); width: 100%; max-width: 1100px; height: 85vh; border-radius: var(--curve-lg); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; transform: scale(0.9); transition: 0.5s; border: 1px solid var(--accent-gold); }
         .modal-overlay.active .modal-content { transform: scale(1); }
-        .modal-close { position: absolute; top: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: var(--bg-main); display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: var(--accent-rust); border: 2px solid var(--border-color); z-index: 10; transition: 0.3s; }
+        .modal-close { position: absolute; top: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: var(--bg-main); display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: var(--accent-rust); border: 2px solid var(--border-color); z-index: 10; transition: 0.3s; cursor: none;}
         .modal-close:hover { background: var(--accent-rust); color: white; transform: rotate(90deg); border-color: var(--accent-rust); }
         .modal-image { background: var(--bg-main); padding: 40px; display: flex; justify-content: center; align-items: center; }
         .modal-image img { width: 100%; height: auto; max-height: 90%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); }
@@ -350,36 +358,30 @@
         }
 
         @media (max-width: 768px) {
-            /* Structural Resets for Mobile */
             .section-padding { padding: 60px 5%; }
             .about-grid, .booking-wrapper, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .stats-grid, .craft-grid { grid-template-columns: 1fr; gap: 20px; }
             
-            /* Header & Hero */
             header { top: 10px; padding: 10px 20px; }
             header.scrolled { top: 0; border-radius: 0; width: 100%; }
             .hero { margin-top: 0; }
             .hero-content { margin-top: 80px; text-align: center; }
             .hero-quote { border-left: none; padding-left: 0; border-top: 2px solid var(--accent-rust); padding-top: 15px; }
             
-            /* Components */
             .about-img-main { height: 350px; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .booking-form-container { padding: 30px; }
-            .booking-img { display: none; } /* Hide large image to save space on mobile form */
+            .booking-img { display: none; } 
             
-            /* Sliders */
             .gallery-img { width: 280px; height: 180px; }
             .review-card { width: 300px; padding: 20px; }
             
-            /* Modal Overrides */
             .modal-content { grid-template-columns: 1fr; height: 90vh; overflow-y: auto; display: block; }
             .modal-image { padding: 20px; height: 300px; }
             .modal-info { padding: 30px; }
             .spec-grid { grid-template-columns: 1fr; }
             
-            /* Top bar */
-            .top-bar { display: none; } /* Hidden on very small screens for cleaner look */
+            .top-bar { display: none; } 
             .page-view { padding-top: 100px; }
             .content-box { padding: 30px 20px; }
         }
@@ -526,11 +528,11 @@
                 </div>
             </section>
 
-            <!-- AI FIT ASSISTANT -->
+            <!-- AI FIT ASSISTANT (INTERACTIVE CHAT) -->
             <section class="section-padding" style="background: var(--bg-main);">
                 <div class="section-header reveal">
                     <h2 class="section-title">AI Fit Assistant</h2>
-                    <p class="section-desc">Not sure which cycle to choose? Let our proprietary algorithm find your perfect match.</p>
+                    <p class="section-desc">Not sure which cycle to choose? Chat with our proprietary AI to find your perfect match.</p>
                 </div>
                 <div class="ai-container reveal">
                     <div class="ai-header">
@@ -538,12 +540,13 @@
                         <div><h3 style="margin:0; color:#fff; font-family:'Montserrat';">Velox Intelligence</h3><span style="font-size: 0.85rem;">Online | Ready to Assist</span></div>
                     </div>
                     <div class="ai-chat-window" id="ai-chat">
-                        <div class="msg bot">Welcome to the Velox showroom. I am your personal AI concierge. To begin, what type of terrain do you ride on the most?</div>
+                        <div class="msg bot">Welcome to the Velox showroom. I am your personal AI concierge. To begin, what type of terrain or riding do you plan to do the most? (e.g., Mountains, City commute, Road racing, Dirt tricks)</div>
                     </div>
                     <div class="ai-controls" id="ai-controls">
-                        <button class="ai-btn" onclick="aiStep('Mountain')">Rugged Mountains</button>
-                        <button class="ai-btn" onclick="aiStep('Road')">Highway Racing</button>
-                        <button class="ai-btn" onclick="aiStep('City')">Urban Streets</button>
+                        <div class="ai-input-group">
+                            <input type="text" id="ai-input" placeholder="Type your answer here..." onkeypress="handleEnter(event)">
+                            <button onclick="handleChatInput()"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -713,7 +716,7 @@
              VIEW 2: FULL CATALOG & FILTERS
              ========================================= -->
         <div id="view-catalog" class="page-view">
-            <section class="section-padding">
+            <section class="section-padding" style="padding-top: 50px;">
                 <div class="section-header">
                     <h2 class="section-title">The Complete Collection</h2>
                     <p class="section-desc">Browse our 30 meticulously engineered masterpieces.</p>
@@ -741,7 +744,7 @@
              VIEW 3: PRIVACY POLICY
              ========================================= -->
         <div id="view-privacy" class="page-view">
-            <section class="section-padding">
+            <section class="section-padding" style="padding-top: 50px;">
                 <div class="content-box">
                     <h2>Privacy Policy</h2>
                     <p>Last Updated: October 2023</p>
@@ -761,7 +764,7 @@
              VIEW 4: TERMS & CONDITIONS
              ========================================= -->
         <div id="view-terms" class="page-view">
-            <section class="section-padding">
+            <section class="section-padding" style="padding-top: 50px;">
                 <div class="content-box">
                     <h2>Terms & Conditions</h2>
                     <h3>1. Test Ride Liability</h3>
@@ -780,7 +783,7 @@
              VIEW 5: PREMIUM MAINTENANCE GUIDE
              ========================================= -->
         <div id="view-maintenance" class="page-view">
-            <section class="section-padding">
+            <section class="section-padding" style="padding-top: 50px;">
                 <div class="content-box">
                     <h2>Premium Maintenance Guide</h2>
                     <p>Protect your investment. Proper care ensures your Velox performs at peak efficiency for decades.</p>
@@ -1129,38 +1132,88 @@
             setTimeout(() => { document.getElementById('booking').scrollIntoView({behavior: 'smooth'}); }, 200);
         }
 
-        /* 12. AI FIT ASSISTANT LOGIC (Pre-fills form) */
+        /* 12. AI FIT ASSISTANT (INTERACTIVE TEXT CHAT LOGIC) */
         const aiChat = document.getElementById('ai-chat');
-        const aiControls = document.getElementById('ai-controls');
-        
-        function aiStep(terrain) {
-            aiChat.innerHTML += `<div class="msg user">${terrain}</div>`;
+        let chatStep = 0;
+        let userPreferences = { terrain: "", budget: "", age: "" };
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') handleChatInput();
+        }
+
+        function handleChatInput() {
+            const inputEl = document.getElementById('ai-input');
+            const text = inputEl.value.trim();
+            if(!text) return;
+
+            // Add user message to chat
+            aiChat.innerHTML += `<div class="msg user">${text}</div>`;
+            inputEl.value = '';
             aiChat.scrollTop = aiChat.scrollHeight;
-            aiControls.innerHTML = "";
-            
+
+            // Process AI Response based on current step
             setTimeout(() => {
-                aiChat.innerHTML += `<div class="msg bot">Analyzing the catalog for your riding style...</div>`;
+                if(chatStep === 0) {
+                    userPreferences.terrain = text.toLowerCase();
+                    aiChat.innerHTML += `<div class="msg bot">Noted. Terrain specific engineering is crucial. Next, what is your approximate budget in INR? (e.g., Under 1 Lakh, 2-5 Lakhs, No limit)</div>`;
+                    chatStep++;
+                } else if (chatStep === 1) {
+                    userPreferences.budget = text.toLowerCase();
+                    aiChat.innerHTML += `<div class="msg bot">Understood. Finally, who is this cycle for? (e.g., Adult male, Teenager, Kid)</div>`;
+                    chatStep++;
+                } else if (chatStep === 2) {
+                    userPreferences.age = text.toLowerCase();
+                    aiChat.innerHTML += `<div class="msg bot">Analyzing our catalog based on your precise inputs...</div>`;
+                    chatStep++;
+                    
+                    // Logic to recommend cycle based on user text
+                    setTimeout(() => {
+                        let rec = "Ultimate Velox"; // Default fallback
+                        const t = userPreferences.terrain;
+                        const a = userPreferences.age;
+                        
+                        if (a.includes("kid") || a.includes("child") || a.includes("boy") || a.includes("girl")) {
+                            rec = "Youth Trail 20";
+                        } else if (t.includes("mountain") || t.includes("dirt") || t.includes("trail") || t.includes("off-road")) {
+                            rec = "Velox Apex Pro";
+                        } else if (t.includes("city") || t.includes("commute") || t.includes("urban") || t.includes("street")) {
+                            rec = "City Glide Elite";
+                        } else if (t.includes("electric") || t.includes("e-bike") || t.includes("battery")) {
+                            rec = "Volt E-Rider";
+                        } else if (t.includes("road") || t.includes("race") || t.includes("speed") || t.includes("fast")) {
+                            rec = "Aero Sprinter V2";
+                        }
+
+                        currentSelectedBike = rec; // Set logic for prefill
+                        
+                        aiChat.innerHTML += `<div class="msg bot">Based on your preferences, I highly recommend the <strong>${rec}</strong>. It fits your profile perfectly.</div>`;
+                        aiChat.scrollTop = aiChat.scrollHeight;
+                        
+                        const controls = document.getElementById('ai-controls');
+                        controls.innerHTML = `
+                            <button class="ai-btn" style="background:var(--accent-rust); color:#fff; border:none; width:100%; font-size:1.1rem; padding:15px;" onclick="prefillAndBook()">Schedule Test Ride for ${rec}</button>
+                            <button class="ai-btn" style="width:100%; margin-top:10px;" onclick="resetAI()">Start Over</button>
+                        `;
+                    }, 1500);
+                }
                 aiChat.scrollTop = aiChat.scrollHeight;
-                
-                setTimeout(() => {
-                    let rec = "Ultimate Velox";
-                    if(terrain === 'Mountain') rec = "Velox Apex Pro";
-                    if(terrain === 'Road') rec = "Aero Sprinter V2";
-                    if(terrain === 'City') rec = "City Glide Elite";
-                    
-                    currentSelectedBike = rec; // Used for prefill function
-                    
-                    aiChat.innerHTML += `<div class="msg bot">Based on your selection, I highly recommend the <strong>${rec}</strong>.</div>`;
-                    aiChat.scrollTop = aiChat.scrollHeight;
-                    
-                    aiControls.innerHTML = `
-                        <button class="ai-btn" style="background:var(--accent-rust); color:#fff; border:none;" onclick="prefillAndBook()">Schedule Test Ride for ${rec}</button>
-                    `;
-                }, 1200);
             }, 600);
         }
 
-        /* 13. WHATSAPP BOOKING SUBMISSION */
+        function resetAI() {
+            chatStep = 0;
+            userPreferences = { terrain: "", budget: "", age: "" };
+            aiChat.innerHTML = `<div class="msg bot">Welcome to the Velox showroom. I am your personal AI concierge. To begin, what type of terrain or riding do you plan to do the most? (e.g., Mountains, City commute, Road racing, Dirt tricks)</div>`;
+            const controls = document.getElementById('ai-controls');
+            controls.innerHTML = `
+                <div class="ai-input-group">
+                    <input type="text" id="ai-input" placeholder="Type your answer here..." onkeypress="handleEnter(event)">
+                    <button onclick="handleChatInput()"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            `;
+        }
+
+        /* 14. WHATSAPP BOOKING SUBMISSION */
         function submitBooking(e) {
             e.preventDefault();
             const fname = document.getElementById('wa-fname').value;
